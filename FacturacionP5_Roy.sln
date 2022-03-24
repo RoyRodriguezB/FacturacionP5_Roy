@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacturacionP5_Roy", "FacturacionP5_Roy\FacturacionP5_Roy.csproj", "{D25E2766-839A-4496-B29E-2B35B4919C81}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AA186A5C-002F-4A0D-A51D-6A70BF6714AD} = {AA186A5C-002F-4A0D-A51D-6A70BF6714AD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{AA186A5C-002F-4A0D-A51D-6A70BF6714AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D25E2766-839A-4496-B29E-2B35B4919C81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D25E2766-839A-4496-B29E-2B35B4919C81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D25E2766-839A-4496-B29E-2B35B4919C81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D25E2766-839A-4496-B29E-2B35B4919C81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA186A5C-002F-4A0D-A51D-6A70BF6714AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA186A5C-002F-4A0D-A51D-6A70BF6714AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA186A5C-002F-4A0D-A51D-6A70BF6714AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA186A5C-002F-4A0D-A51D-6A70BF6714AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {281C9679-E592-448E-B2F8-23C62A31D752}
+	EndGlobalSection
+EndGlobal

@@ -84,6 +84,7 @@ namespace FacturacionP5_Roy.Formularios
             this.DgvListaUsuarios.Size = new System.Drawing.Size(631, 178);
             this.DgvListaUsuarios.TabIndex = 0;
             this.DgvListaUsuarios.VirtualMode = true;
+            this.DgvListaUsuarios.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaUsuarios_DataBindingComplete);
             // 
             // groupBox1
             // 
@@ -122,6 +123,7 @@ namespace FacturacionP5_Roy.Formularios
             this.BtnAgregar.TabIndex = 2;
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // BtnEditar
             // 

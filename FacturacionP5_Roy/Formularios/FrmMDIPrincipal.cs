@@ -16,5 +16,14 @@ namespace FacturacionP5_Roy.Formularios
         {
             InitializeComponent();
         }
+
+        private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!ObjetosGlobales.MiFormDeGestionDeUsuarios.Visible)
+            {
+                ObjetosGlobales.MiFormDeGestionDeUsuarios = new FrmUsuariosGestion();
+                ObjetosGlobales.MiFormDeGestionDeUsuarios.Show();
+            }
+        }
     }
 }

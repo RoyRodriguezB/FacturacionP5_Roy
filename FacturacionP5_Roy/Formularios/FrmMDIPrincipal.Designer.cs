@@ -131,6 +131,7 @@ namespace FacturacionP5_Roy.Formularios
             this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
             this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.gestionDeUsuariosToolStripMenuItem.Text = "Gestion de Usuarios";
+            this.gestionDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestionDeUsuariosToolStripMenuItem_Click);
             // 
             // gestionDeProductosToolStripMenuItem
             // 

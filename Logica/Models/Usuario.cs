@@ -37,19 +37,19 @@ namespace Logica.Models
             //string PassWordEncriptado = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);
 
             //lista de parametros que se enviarán al SP
-            MiCnn3.ListaParametros.Add(new SqlParameter("@Nombre", this.Nombre));
-            MiCnn3.ListaParametros.Add(new SqlParameter("@Email", this.NombreUsuario));
-            MiCnn3.ListaParametros.Add(new SqlParameter("@Telefono", this.Telefono));
-            MiCnn3.ListaParametros.Add(new SqlParameter("@CorreoRespaldo", this.CorreoDeRespaldo));
-            MiCnn3.ListaParametros.Add(new SqlParameter("@Contrasennia", PassWordEncriptado));
-            MiCnn3.ListaParametros.Add(new SqlParameter("@Cedula", this.Cedula));
-            MiCnn3.ListaParametros.Add(new SqlParameter("@IdRolUsuario", this.MiRol.IDUsuarioRol));
+            //MiCnn3.ListaParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            // MiCnn3.ListaParametros.Add(new SqlParameter("@Email", this.NombreUsuario));
+            //MiCnn3.ListaParametros.Add(new SqlParameter("@Telefono", this.Telefono));
+            //MiCnn3.ListaParametros.Add(new SqlParameter("@CorreoRespaldo", this.CorreoDeRespaldo));
+            //MiCnn3.ListaParametros.Add(new SqlParameter("@Contrasennia", PassWordEncriptado));
+            //MiCnn3.ListaParametros.Add(new SqlParameter("@Cedula", this.Cedula));
+            //MiCnn3.ListaParametros.Add(new SqlParameter("@IdRolUsuario", this.MiRol.IDUsuarioRol));
 
             //paso 1.6.3 y 1.6.4
-            int Resultado = MiCnn3.EjecutarUpdateDeleteInsert("SpUsuariosAgregar");
+            //int Resultado = MiCnn3.EjecutarUpdateDeleteInsert("SpUsuariosAgregar");
 
             //paso 1.6.5
-            if (Resultado > 0)
+            //if (Resultado > 0)
             {
                 R = true;
             }
@@ -85,7 +85,7 @@ namespace Logica.Models
             //DataTable Consulta = MiCnn.EjecutarSelect("SpUsuariosConsultarPorCedula");
 
             //paso 1.3.5
-            if (Consulta.Rows.Count > 0)
+            // if (Consulta.Rows.Count > 0)
             {
                 R = true;
             }
@@ -107,7 +107,7 @@ namespace Logica.Models
             // DataTable Consulta = MiCnn2.EjecutarSelect("SpUsuariosConsultarPorEmail");
 
             //paso 1.4.5
-            if (Consulta.Rows.Count > 0)
+            //if (Consulta.Rows.Count > 0)
             {
                 R = true;
             }
@@ -164,10 +164,10 @@ namespace Logica.Models
             DataTable R = new DataTable();
 
             //paso 2.1 y 2.2 
-            //Conexion MiCnn = new Conexion();
+            Conexion MiCnn = new Conexion();
 
             //paso 2.3 y 2.4
-            //R = MiCnn.EjecutarSelect("SpUsuariosListarActivos");
+            R = MiCnn.EjecutarSelect("SpUsuariosListarActivos");
 
             return R;
         }

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Logica.Models
 {
-    public class ClienteTipo
+    public class ProductoCategoria
     {
-        public int IDClienteTipo { get; set; }
-        public string Tipo { get; set; }
+        public int IDProductoCategoria { get; set; }
+        public string Categoria { get; set; }
 
         public DataTable Listar()
         {
@@ -21,6 +21,5 @@ namespace Logica.Models
 
             return R;
         }
-
     }
 }

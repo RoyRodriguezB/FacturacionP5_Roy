@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Logica.Models
 {
-    public class ClienteTipo
+    public class UnidadMedida
     {
-        public int IDClienteTipo { get; set; }
-        public string Tipo { get; set; }
+        public int IDUnidad { get; set; }
+        public string Unidad { get; set; }
 
         public DataTable Listar()
         {

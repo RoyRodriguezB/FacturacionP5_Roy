@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace Logica.Models
 {
-    public class ClienteTipo
+    public class Impuesto
     {
-        public int IDClienteTipo { get; set; }
-        public string Tipo { get; set; }
+        public int IDImpuesto { get; set; }
+        public string CodigoImpuesto { get; set; }
+        public string ImpuestoNombre { get; set; }
+        public decimal MontoImpuesto { get; set; }
 
         public DataTable Listar()
         {
@@ -21,6 +23,5 @@ namespace Logica.Models
 
             return R;
         }
-
     }
 }

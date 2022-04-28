@@ -30,11 +30,11 @@ namespace Logica.Models
             bool R = false;
 
             //paso 1.6.1 y 1.6.2 
-            Conexion MiCnn3 = new Conexion();
+            //Conexion MiCnn3 = new Conexion();
 
-            Encriptador MiEncriptador = new Encriptador();
+            //Encriptador MiEncriptador = new Encriptador();
 
-            string PassWordEncriptado = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);
+            //string PassWordEncriptado = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);
 
             //lista de parametros que se enviarán al SP
             MiCnn3.ListaParametros.Add(new SqlParameter("@Nombre", this.Nombre));
@@ -76,13 +76,13 @@ namespace Logica.Models
             bool R = false;
 
             //paso 1.3.1 y 1.3.2 
-            Conexion MiCnn = new Conexion();
+            //Conexion MiCnn = new Conexion();
 
             //se deben agregar los params si el SP los requiere
-            MiCnn.ListaParametros.Add(new SqlParameter("@Cedula", this.Cedula));
+            // MiCnn.ListaParametros.Add(new SqlParameter("@Cedula", this.Cedula));
 
             //paso 1.3.4
-            DataTable Consulta = MiCnn.EjecutarSelect("SpUsuariosConsultarPorCedula");
+            //DataTable Consulta = MiCnn.EjecutarSelect("SpUsuariosConsultarPorCedula");
 
             //paso 1.3.5
             if (Consulta.Rows.Count > 0)
@@ -98,13 +98,13 @@ namespace Logica.Models
             bool R = false;
 
             //paso 1.4.1 y 1.4.2 
-            Conexion MiCnn2 = new Conexion();
+            // Conexion MiCnn2 = new Conexion();
 
             //se deben agregar los params si el SP los requiere
-            MiCnn2.ListaParametros.Add(new SqlParameter("@Email", this.NombreUsuario));
+            //MiCnn2.ListaParametros.Add(new SqlParameter("@Email", this.NombreUsuario));
 
             //paso 1.4.4
-            DataTable Consulta = MiCnn2.EjecutarSelect("SpUsuariosConsultarPorEmail");
+            // DataTable Consulta = MiCnn2.EjecutarSelect("SpUsuariosConsultarPorEmail");
 
             //paso 1.4.5
             if (Consulta.Rows.Count > 0)
@@ -128,13 +128,13 @@ namespace Logica.Models
         {
             Usuario R = new Usuario();
 
-            Conexion MyCnn = new Conexion();
+            //Conexion MyCnn = new Conexion();
 
-            MyCnn.ListaParametros.Add(new SqlParameter("@id", pIdUsuario));
+            // MyCnn.ListaParametros.Add(new SqlParameter("@id", pIdUsuario));
 
             DataTable DatosDeUsuario = new DataTable();
 
-            DatosDeUsuario = MyCnn.EjecutarSelect("SpUsuariosConsultarPorID");
+            //DatosDeUsuario = MyCnn.EjecutarSelect("SpUsuariosConsultarPorID");
 
             if (DatosDeUsuario != null && DatosDeUsuario.Rows.Count > 0)
             {
@@ -164,10 +164,10 @@ namespace Logica.Models
             DataTable R = new DataTable();
 
             //paso 2.1 y 2.2 
-            Conexion MiCnn = new Conexion();
+            //Conexion MiCnn = new Conexion();
 
             //paso 2.3 y 2.4
-            R = MiCnn.EjecutarSelect("SpUsuariosListarActivos");
+            //R = MiCnn.EjecutarSelect("SpUsuariosListarActivos");
 
             return R;
         }

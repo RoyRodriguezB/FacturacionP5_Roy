@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Logica.Models
 {
-    class FacturaTipo
+    public class FacturaTipo
     {
 
         //primero se escriben los atributos simples. 

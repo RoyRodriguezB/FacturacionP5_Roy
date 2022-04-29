@@ -35,14 +35,12 @@ namespace FacturacionP5_Roy.Formularios
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiarForm = new System.Windows.Forms.Button();
-            this.BtnCerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.CbVerActivos = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtCodigo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -60,6 +58,7 @@ namespace FacturacionP5_Roy.Formularios
             this.CNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TxtNombre = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +83,7 @@ namespace FacturacionP5_Roy.Formularios
             this.DgvListaUsuarios.Size = new System.Drawing.Size(631, 178);
             this.DgvListaUsuarios.TabIndex = 0;
             this.DgvListaUsuarios.VirtualMode = true;
+            this.DgvListaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaUsuarios_CellClick);
             this.DgvListaUsuarios.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvListaUsuarios_DataBindingComplete);
             // 
             // groupBox1
@@ -151,24 +151,13 @@ namespace FacturacionP5_Roy.Formularios
             // 
             this.BtnLimpiarForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLimpiarForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLimpiarForm.Location = new System.Drawing.Point(378, 384);
+            this.BtnLimpiarForm.Location = new System.Drawing.Point(416, 385);
             this.BtnLimpiarForm.Name = "BtnLimpiarForm";
             this.BtnLimpiarForm.Size = new System.Drawing.Size(125, 39);
             this.BtnLimpiarForm.TabIndex = 5;
             this.BtnLimpiarForm.Text = "Limpiar Formulario";
             this.BtnLimpiarForm.UseVisualStyleBackColor = true;
-            // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackColor = System.Drawing.Color.Gainsboro;
-            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCerrar.Location = new System.Drawing.Point(539, 383);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(82, 38);
-            this.BtnCerrar.TabIndex = 6;
-            this.BtnCerrar.Text = "Cancelar";
-            this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnLimpiarForm.Click += new System.EventHandler(this.BtnLimpiarForm_Click);
             // 
             // label1
             // 
@@ -231,13 +220,6 @@ namespace FacturacionP5_Roy.Formularios
             this.label3.TabIndex = 2;
             this.label3.Text = "Nombre";
             // 
-            // TxtNombre
-            // 
-            this.TxtNombre.Location = new System.Drawing.Point(57, 48);
-            this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(161, 20);
-            this.TxtNombre.TabIndex = 3;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -253,6 +235,7 @@ namespace FacturacionP5_Roy.Formularios
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(161, 20);
             this.TxtEmail.TabIndex = 5;
+            this.TxtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmail_KeyPress);
             // 
             // label5
             // 
@@ -269,6 +252,7 @@ namespace FacturacionP5_Roy.Formularios
             this.TxtCedula.Name = "TxtCedula";
             this.TxtCedula.Size = new System.Drawing.Size(161, 20);
             this.TxtCedula.TabIndex = 7;
+            this.TxtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCedula_KeyPress);
             // 
             // label6
             // 
@@ -285,6 +269,7 @@ namespace FacturacionP5_Roy.Formularios
             this.TxtTelefono.Name = "TxtTelefono";
             this.TxtTelefono.Size = new System.Drawing.Size(189, 20);
             this.TxtTelefono.TabIndex = 9;
+            this.TxtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTelefono_KeyPress);
             // 
             // label7
             // 
@@ -301,6 +286,7 @@ namespace FacturacionP5_Roy.Formularios
             this.TxtEmailRespaldo.Name = "TxtEmailRespaldo";
             this.TxtEmailRespaldo.Size = new System.Drawing.Size(189, 20);
             this.TxtEmailRespaldo.TabIndex = 11;
+            this.TxtEmailRespaldo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmailRespaldo_KeyPress);
             // 
             // label8
             // 
@@ -318,6 +304,7 @@ namespace FacturacionP5_Roy.Formularios
             this.TxtPassword.Size = new System.Drawing.Size(189, 20);
             this.TxtPassword.TabIndex = 13;
             this.TxtPassword.UseSystemPasswordChar = true;
+            this.TxtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPassword_KeyPress);
             // 
             // label9
             // 
@@ -377,6 +364,14 @@ namespace FacturacionP5_Roy.Formularios
             this.CRol.Name = "CRol";
             this.CRol.ReadOnly = true;
             // 
+            // TxtNombre
+            // 
+            this.TxtNombre.Location = new System.Drawing.Point(57, 48);
+            this.TxtNombre.Name = "TxtNombre";
+            this.TxtNombre.Size = new System.Drawing.Size(161, 20);
+            this.TxtNombre.TabIndex = 3;
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
+            // 
             // FrmUsuariosGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,7 +380,6 @@ namespace FacturacionP5_Roy.Formularios
             this.Controls.Add(this.CbVerActivos);
             this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.BtnLimpiarForm);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnEditar);
@@ -413,7 +407,6 @@ namespace FacturacionP5_Roy.Formularios
         private System.Windows.Forms.Button BtnEditar;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnLimpiarForm;
-        private System.Windows.Forms.Button BtnCerrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.CheckBox CbVerActivos;
@@ -434,9 +427,9 @@ namespace FacturacionP5_Roy.Formularios
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TxtNombre;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtCodigo;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TxtNombre;
     }
 }

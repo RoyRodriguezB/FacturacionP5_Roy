@@ -33,16 +33,16 @@ namespace Logica.Models
             //1.6.1 y 1.6.2 semana 7 2video
             Conexion MiCnn3 = new Conexion();
 
-            //Encriptador MiEncriptador = new Encriptador();
+            Encriptador MiEncriptador = new Encriptador();
 
-            //string PassWordEncriptado = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);
+            string PassWordEncriptado = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);
 
             // parametros que se enviarán al SP
             MiCnn3.ListaParametros.Add(new SqlParameter("@Nombre", this.Nombre));
              MiCnn3.ListaParametros.Add(new SqlParameter("@Email", this.NombreUsuario));
             MiCnn3.ListaParametros.Add(new SqlParameter("@Telefono", this.Telefono));
            MiCnn3.ListaParametros.Add(new SqlParameter("@CorreoRespaldo", this.CorreoDeRespaldo));
-            MiCnn3.ListaParametros.Add(new SqlParameter("@Contrasennia", this.Contrasennia));
+            MiCnn3.ListaParametros.Add(new SqlParameter("@Contrasennia", PassWordEncriptado));
             MiCnn3.ListaParametros.Add(new SqlParameter("@Cedula", this.Cedula));
             MiCnn3.ListaParametros.Add(new SqlParameter("@IdRolUsuario", this.MiRol.IDUsuarioRol));
             //PassWordEncriptado poner en vez de this.Contrasennia
@@ -131,13 +131,13 @@ namespace Logica.Models
         {
             Usuario R = new Usuario();
 
-            //Conexion MyCnn = new Conexion();
+            Conexion MyCnn = new Conexion();
 
-            // MyCnn.ListaParametros.Add(new SqlParameter("@id", pIdUsuario));
+             MyCnn.ListaParametros.Add(new SqlParameter("@id", pIdUsuario));
 
             DataTable DatosDeUsuario = new DataTable();
 
-            //DatosDeUsuario = MyCnn.EjecutarSelect("SpUsuariosConsultarPorID");
+            DatosDeUsuario = MyCnn.EjecutarSelect("SpUsuariosConsultarPorID");
 
             if (DatosDeUsuario != null && DatosDeUsuario.Rows.Count > 0)
             {

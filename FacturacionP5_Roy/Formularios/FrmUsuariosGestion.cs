@@ -13,13 +13,13 @@ namespace FacturacionP5_Roy.Formularios
     public partial class FrmUsuariosGestion : Form
     {
 
-        //al igual que con cualquier otra clase se pueden escribir atributos para el form
+        // se pueden escribir atributos para el form
         public Logica.Models.Usuario MiUsuarioLocal { get; set; }
 
         public FrmUsuariosGestion()
         {
             InitializeComponent();
-            //Paso 1.1 y 1.2
+            // 1.1 y 1.2
             MiUsuarioLocal = new Logica.Models.Usuario();
         }
 
@@ -30,16 +30,36 @@ namespace FacturacionP5_Roy.Formularios
 
         private void FrmUsuariosGestion_Load(object sender, EventArgs e)
         {
+            MdiParent = ObjetosGlobales.MiFormularioPrincipal;
+
             ListarUsuariosActivos();
 
             CargarRolesDeUsuarioEnCombo();
 
             LimpiarForm();
+
+            ActivarAgregar();
+        }
+
+        private void ActivarAgregar()
+        {
+            //activa  botón de agregar 
+            BtnAgregar.Enabled = true;
+            BtnEditar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarEditarYEliminar()
+        {
+            //activa  botón de editarr 
+            BtnAgregar.Enabled = false;
+            BtnEditar.Enabled = true;
+            BtnEliminar.Enabled = true;
         }
 
         private void LimpiarForm()
         {
-            // elimina  los datos de los controles del formulario 
+            // elimina   datos de los controles del formulario 
             TxtCodigo.Clear();
             TxtNombre.Clear();
             TxtEmail.Clear();
@@ -53,7 +73,7 @@ namespace FacturacionP5_Roy.Formularios
 
         private void CargarRolesDeUsuarioEnCombo()
         {
-            //crear un objeto de tipo usuario
+            //crear  objeto de tipo usuario
             Logica.Models.UsuarioRol ObjRolDeUsuario = new Logica.Models.UsuarioRol();
 
             DataTable ListaRoles = new DataTable();
@@ -119,7 +139,7 @@ namespace FacturacionP5_Roy.Formularios
             {
 
                 //retroalimentar al usuario  
-                //debemos reevaluar cada cuadro de texto  
+                //
         
 
                 if (string.IsNullOrEmpty(TxtNombre.Text.Trim()))
@@ -296,6 +316,7 @@ namespace FacturacionP5_Roy.Formularios
         private void BtnLimpiarForm_Click(object sender, EventArgs e)
         {
             LimpiarForm();
+            ActivarAgregar();
         }
 
         private void DgvListaUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -303,13 +324,43 @@ namespace FacturacionP5_Roy.Formularios
             if (DgvListaUsuarios.SelectedRows.Count == 1)
             {
                 DataGridViewRow Fila = DgvListaUsuarios.SelectedRows[0];
+                //semana 8 mostrar datos al seleccionar los datos
 
+                int IdUsuarioSeleccionado = Convert.ToInt32(Fila.Cells["CIDUsuario"].Value);
 
+                MiUsuarioLocal = new Logica.Models.Usuario();
+                MiUsuarioLocal = MiUsuarioLocal.ConsultarPorID(IdUsuarioSeleccionado);
 
+                if (MiUsuarioLocal.IDUsuario > 0)
+                {
+                    //se representa la info en los controles respectivos usando el obj MiUsuarioLocal como
+                    //fuente de datos 
 
+                    LimpiarForm();
 
-            }
+                    TxtCodigo.Text = MiUsuarioLocal.IDUsuario.ToString();
+                    TxtNombre.Text = MiUsuarioLocal.Nombre;
+                    TxtEmail.Text = MiUsuarioLocal.NombreUsuario;
+                    TxtCedula.Text = MiUsuarioLocal.Cedula;
+                    TxtTelefono.Text = MiUsuarioLocal.Telefono;
+                    TxtEmailRespaldo.Text = MiUsuarioLocal.CorreoDeRespaldo;
+
+                    CboxTipoUsuario.SelectedValue = MiUsuarioLocal.MiRol.IDUsuarioRol;
+
+                    ActivarEditarYEliminar();
+
+                    //debemos considerar si la lista que se está visualizando es la de usuario 
+                    //activos o inactivos. en caso que sean los inactivos, se debe desactivar la 
+                    //edición de los campos y la utilización del botón Editar
+
+          
+                }
+            } 
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+
         }
     }
-  }
-
+}

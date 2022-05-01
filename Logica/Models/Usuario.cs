@@ -166,10 +166,10 @@ namespace Logica.Models
         {
             DataTable R = new DataTable();
 
-            //paso 2.1 y 2.2 
+            // 2.1 y 2.2 
             Conexion MiCnn = new Conexion();
 
-            //paso 2.3 y 2.4
+            // 2.3 y 2.4
             R = MiCnn.EjecutarSelect("SpUsuariosListarActivos");
 
             return R;

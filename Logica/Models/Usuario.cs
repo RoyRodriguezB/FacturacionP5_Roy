@@ -130,6 +130,43 @@ namespace Logica.Models
             return R;
         }
 
+        public Usuario ValidarIngreso(string pUsuario, string pContrasennia)
+        {
+            Usuario R = new Usuario();
+
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaParametros.Add(new SqlParameter("@usuario", pUsuario));
+
+            Encriptador MiEncriptador = new Encriptador();
+            string ContrasenniaEncriptada = MiEncriptador.EncriptarEnUnSentido(pContrasennia);
+            MyCnn.ListaParametros.Add(new SqlParameter("@contrasennia", ContrasenniaEncriptada));
+            //pUsuario
+            DataTable DatosDeUsuario = new DataTable();
+
+            DatosDeUsuario = MyCnn.EjecutarSelect("SpUsuariosValidarIngreso");
+
+            if (DatosDeUsuario != null && DatosDeUsuario.Rows.Count > 0)
+            {
+                DataRow MisDatos = DatosDeUsuario.Rows[0];
+
+                R.IDUsuario = Convert.ToInt32(MisDatos["IDUsuario"]);
+                R.Nombre = Convert.ToString(MisDatos["Nombre"]);
+                R.NombreUsuario = Convert.ToString(MisDatos["NombreUsuario"]);
+                R.Cedula = Convert.ToString(MisDatos["Cedula"]);
+                R.Telefono = Convert.ToString(MisDatos["Telefono"]);
+                R.CorreoDeRespaldo = Convert.ToString(MisDatos["CorreoDeRespaldo"]);
+                R.Contrasennia = Convert.ToString(MisDatos["Contrasennia"]);
+
+                R.Activo = Convert.ToBoolean(MisDatos["Activo"]);
+
+                R.MiRol.IDUsuarioRol = Convert.ToInt32(MisDatos["IDUsuarioRol"]);
+                R.MiRol.Rol = Convert.ToString(MisDatos["Rol"]);
+            }
+
+            return R;
+        }
+
         public bool ConsultarPorCedula()
 
         {

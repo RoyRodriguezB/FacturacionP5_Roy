@@ -15,9 +15,11 @@ namespace FacturacionP5_Roy
         static void Main()
         {
             Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Formularios.FrmMDIPrincipal());
-            Application.Run(ObjetosGlobales.MiFormularioPrincipal);
+            //Application.Run(ObjetosGlobales.MiFormularioPrincipal); 
+            //semana 10
+            Application.Run(new Formularios.FrmLogin());
         }
     }
 }

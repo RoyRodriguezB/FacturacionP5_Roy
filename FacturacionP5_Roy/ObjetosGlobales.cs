@@ -9,6 +9,8 @@ namespace FacturacionP5_Roy
 {
     public static class ObjetosGlobales
     {
+        public static Logica.Models.Usuario MiUsuarioGlobal = new Logica.Models.Usuario();
+
 
         public static Form MiFormularioPrincipal = new Formularios.FrmMDIPrincipal();
 

@@ -657,6 +657,7 @@ namespace FacturacionP5_Roy.Formularios
             this.BtnItemAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnItemAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnItemAgregar.UseVisualStyleBackColor = false;
+            this.BtnItemAgregar.Click += new System.EventHandler(this.BtnItemAgregar_Click);
             // 
             // FrmFacturacion
             // 

@@ -17,7 +17,7 @@ namespace Logica.Models
         public decimal TotalLinea { get; set; }
 
         //atrib compuesto
-        Producto MiProducto { get; set; }
+        public Producto MiProducto { get; set; }
 
         public FacturaDetalle()
         {

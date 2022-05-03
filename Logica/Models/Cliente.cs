@@ -86,7 +86,7 @@ namespace Logica.Models
             DataTable R = new DataTable();
 
             Conexion MyCnn = new Conexion();
-            //parametro de almacenamiento almacenado semana 13
+            //parametro de almacenamiento almacenado semana 13  
             MyCnn.ListaParametros.Add(new SqlParameter("@filtro", Filtro));
 
             R = MyCnn.EjecutarSelect("SpClientesListar");

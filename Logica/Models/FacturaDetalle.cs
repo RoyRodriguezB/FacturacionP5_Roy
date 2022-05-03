@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logica.Models
 {
-    class FacturaDetalle
+    public class FacturaDetalle
     {
         public string DescripcionItem { get; set; }
         public decimal CantidadFactura { get; set; }

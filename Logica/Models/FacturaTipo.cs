@@ -34,7 +34,10 @@ namespace Logica.Models
             DataTable R = new DataTable();
 
             //TODO: Escribir código para llenar R con los
-            //datos necesarios
+            //datos necesarios semana 13
+            Conexion MyCnn = new Conexion();
+
+            R = MyCnn.EjecutarSelect("SpFacturasTipoListar");
 
             return R;
         }

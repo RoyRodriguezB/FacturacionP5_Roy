@@ -63,6 +63,26 @@ namespace FacturacionP5_Roy.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add_icon {
+            get {
+                object obj = ResourceManager.GetObject("Add-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enterpriese {
+            get {
+                object obj = ResourceManager.GetObject("enterpriese", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image1 {
             get {
                 object obj = ResourceManager.GetObject("image1", resourceCulture);

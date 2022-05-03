@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Logica.Models
 {
-    class Factura
+    public class Factura
     {
         //simples
 
@@ -91,11 +91,11 @@ namespace Logica.Models
         {
             DataTable R = new DataTable();
 
-            // Conexion MyCnn = new Conexion();
+             Conexion MyCnn = new Conexion();
 
-            //R = MyCnn.EjecutarSelect("SpFacturasDetalleEsquema", true);
+            R = MyCnn.EjecutarSelect("SpFacturasDetalleEsquema", true);
 
-            // R.PrimaryKey = null;
+            R.PrimaryKey = null;
 
             return R;
         }
